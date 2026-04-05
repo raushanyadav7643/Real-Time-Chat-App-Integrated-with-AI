@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { io } from "socket.io-client";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
-axios.defaults.baseURL = backendUrl;
+axios.defaults.baseURL = "https://real-time-chat-app-integrated-with-ai.onrender.com";
 
 export const AuthContext = createContext();
 
@@ -108,7 +108,7 @@ export const AuthProvider = ({ children }) => {
     // Disconnect existing socket if any to start fresh
     if (socket) socket.disconnect();
 
-    const newSocket = io(backendUrl, {
+    const newSocket = io("https://real-time-chat-app-integrated-with-ai.onrender.com", {
       query: {
         userId: userData._id.toString(),
       },
